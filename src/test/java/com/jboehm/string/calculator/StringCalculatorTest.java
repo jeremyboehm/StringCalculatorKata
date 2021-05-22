@@ -20,4 +20,11 @@ public class StringCalculatorTest {
         int result = stringCalculator.add("");
         Assertions.assertThat(result).isEqualTo(0);
     }
+
+    @Test
+    public void should_add_numbers_with_new_lines() {
+        StringCalculator stringCalculator = new StringCalculator();
+        int result = stringCalculator.add("1\n2,3");
+        Assertions.assertThat(result).isEqualTo(6);
+    }
 }
