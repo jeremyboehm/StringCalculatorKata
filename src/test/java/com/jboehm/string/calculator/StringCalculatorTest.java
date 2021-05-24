@@ -33,9 +33,15 @@ public class StringCalculatorTest {
     }
 
     @Test()
-    public void should_not_add_numbers_with_specified_delimiter() throws NotValidNumberString {
+    public void should_add_numbers_with_specified_delimiter() throws NotValidNumberString {
         StringCalculator stringCalculator = new StringCalculator();
-        int result = stringCalculator.addWithSpecifiedDelimiter("//;\n1;2;3");
+        int result = stringCalculator.add("//;\n1;2;3");
         Assertions.assertThat(result).isEqualTo(6);
+    }
+
+    @Test(expected = NotValidNumberString.class)
+    public void should_not_validate_string_with_specified_limiter() throws NotValidNumberString {
+        StringCalculator stringCalculator = new StringCalculator();
+        int result = stringCalculator.add("//;\n1\n;2;3");
     }
 }
