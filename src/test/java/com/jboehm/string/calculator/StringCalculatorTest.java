@@ -3,8 +3,6 @@ package com.jboehm.string.calculator;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class StringCalculatorTest {
 
     @Test
@@ -32,5 +30,12 @@ public class StringCalculatorTest {
     public void should_not_validate_string() throws NotValidNumberString {
         StringCalculator stringCalculator = new StringCalculator();
         int result = stringCalculator.add("1,\n");
+    }
+
+    @Test()
+    public void should_not_add_numbers_with_specified_delimiter() throws NotValidNumberString {
+        StringCalculator stringCalculator = new StringCalculator();
+        int result = stringCalculator.addWithSpecifiedDelimiter("//;\n1;2;3");
+        Assertions.assertThat(result).isEqualTo(6);
     }
 }
