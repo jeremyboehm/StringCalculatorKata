@@ -1,7 +1,8 @@
 package com.jboehm.string.calculator;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class IntArrays {
     static List<Integer> toList(String numbersString, String delimiter) {
@@ -10,10 +11,6 @@ public class IntArrays {
     }
 
     private static List<Integer> toIntList(String[] numbers) {
-        List<Integer> numbersList = new ArrayList<>();
-        for (String number : numbers) {
-            numbersList.add(Integer.parseInt(number));
-        }
-        return numbersList;
+        return Arrays.stream(numbers).map(Integer::parseInt).collect(Collectors.toList());
     }
 }
