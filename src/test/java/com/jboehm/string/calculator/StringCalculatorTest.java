@@ -42,18 +42,18 @@ public class StringCalculatorTest {
     @Test(expected = NotValidNumberString.class)
     public void should_not_validate_string_with_specified_limiter() throws NotValidNumberString, NegativeNotAllowed {
         StringCalculator stringCalculator = new StringCalculator();
-        int result = stringCalculator.add("//;\n1\n;2;3");
+        stringCalculator.add("//;\n1\n;2;3");
     }
 
     @Test(expected = NegativeNotAllowed.class)
     public void should_not_validate_string_with_negative_number() throws NegativeNotAllowed, NotValidNumberString {
         StringCalculator stringCalculator = new StringCalculator();
-        int result = stringCalculator.add("//;\n1;-2;-3");
+        stringCalculator.add("//;\n1;-2;-3");
     }
 
     @Test(expected = NotValidNumberString.class)
     public void should_not_validate_string_because_of_integrity_instead_of_negative() throws NotValidNumberString, NegativeNotAllowed {
         StringCalculator stringCalculator = new StringCalculator();
-        int result = stringCalculator.add("//;\n-1\n;2;3");
+        stringCalculator.add("//;\n-1\n;2;3");
     }
 }

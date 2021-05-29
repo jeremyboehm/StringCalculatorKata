@@ -5,12 +5,12 @@ public class StringCalculator {
     public StringCalculator() {
     }
 
-    public int add(String numbersString) throws NotValidNumberString, NegativeNotAllowed {
-        if (numbersString.isEmpty()) {
+    public int add(String input) throws NotValidNumberString, NegativeNotAllowed {
+        if (input.isEmpty()) {
             return 0;
         }
-        NumbersString numbersString1 = new NumbersString(numbersString);
+        NumbersString numbersString = new NumbersString(input);
 
-        return numbersString1.getNumbersAsList().stream().mapToInt(number -> number).sum();
+        return numbersString.getNumbersAsList().stream().mapToInt(number -> number).sum();
     }
 }
